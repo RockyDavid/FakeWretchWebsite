@@ -1,0 +1,64 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+@font-face {
+	font-family: 'pcpaprregular';
+	src: url('/css/font/pcpapr-webfont.eot');
+	src: url('/css/font/pcpapr-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('/css/font/pcpapr-webfont.woff2') format('woff2'),
+		 url('/css/font/pcpapr-webfont.woff') format('woff'),
+		 url('/css/font/pcpapr-webfont.ttf') format('truetype'),
+		 url('/css/font/pcpapr-webfont.svg#pcpaprregular') format('svg');
+	font-weight: normal;
+	font-style: normal;}
+
+/*---------------ICON-------------------------*/
+[class^="ic-"],[class*="ic-"]{font-family:'pcpaprregular';font-style:normal;speak:none;font-weight:normal;-webkit-font-smoothing:antialiased; padding: 0 1px;}
+.ic-srch:before{content:'!'}
+.ic-srch{*zoom:expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#33;')}
+.ic-mail:before{content:'"'}
+.ic-mail{*zoom:expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#34;')}
+.ic-hart:before{content:'#'}
+.ic-hart{*zoom:expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#35;')}
+.ic-start:before{content:'$'}
+.ic-start{*zoom:expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#36;')}
+.ic-fb:before{content:'%'}
+.ic-fb{*zoom:expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#37;')}
+.ic-twtr:before{content:'&'}
+.ic-twtr{*zoom:expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#38;')}
+.ic-gugl:before{content:"'"}
+.ic-gugl{*zoom:expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#39;')}
+.ic-tmblr:before{content:'('}
+.ic-tmblr{*zoom:expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#40;')}
+.ic-rss:before{content:')'}
+.ic-rss{*zoom:expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#41;')}
+.ic-home:before{content:'*'}
+.ic-home{*zoom:expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#42;')}
+.ic-tick:before{content:'+'}
+.ic-tick{*zoom:expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#43;')}
+.ic-del:before{content:','}
+.ic-del{*zoom:expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#44;')}
+.ic-kaza:before{content:'-'}
+.ic-kaza{*zoom:expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#45;')}
+.ic-arw-L:before{content:'.'}
+.ic-arw-L{*zoom:expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#46;')}
+.ic-arw1-t:before{content:'/'}
+.ic-arw1-t{*zoom:expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#47;')}
+.ic-set:before{content:'0'}
+.ic-set{*zoom:expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#48;')}
+.ic-pic:before{content:'1'}
+.ic-pic{*zoom:expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#49;')}
+.ic-add:before{content:'2'}
+.ic-add{*zoom:expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#50;')}
+.ic-pen:before{content:'3'}
+.ic-pen{*zoom:expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#51;')}
+.ic-clock:before{content:'4'}
+.ic-clock{*zoom:expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#52;')}
+.ic-pctwee:before{content:'5'}
+.ic-pctwee{*zoom:expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#53;')}
+.ic-msgbub:before{content:'6'}
+.ic-msgbub{*zoom:expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#54;')}
+.ic-authr:before{content:'7'}
+.ic-authr{*zoom:expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#55;')}
+
