@@ -43,7 +43,7 @@
     onBeforeUnmount(() => {
       window.removeEventListener('alertMessageRemove', handleRemoveMessage as EventListener);
       window.removeEventListener('alertinfo', handleAlertinfo as EventListener);
-          window.removeEventListener('alertwarn', handleAlertWarning as EventListener);
+      window.removeEventListener('alertwarn', handleAlertWarning as EventListener);
     });
     
 </script>
@@ -60,7 +60,7 @@
       right: 0;
       bottom: 0;
       padding: 5px;
-      position: absolute;
+      position: fixed;
       display: block;
       /* border: 1px solid #000; */
       width: calc(100% / 4);

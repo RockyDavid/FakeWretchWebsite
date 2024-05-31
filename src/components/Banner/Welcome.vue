@@ -43,28 +43,36 @@
 
 <style scoped>
 
-#welcome h1 {
-    font-size: 32px;
-    padding: 90px 0 0 350px;
-    margin: 0px;
-    text-align: left;
-} 
-#welcome h1 a {
-    color: #3F51B5;
-    background: rgba(200, 200, 200, 0.5);
-    border-radius: 5px;
-}
-#welcome .description {
-    position: absolute;
-    font-size:11px;
-    top: 140px;
-    left: 350px;
-    z-index: 10;
-    font-weight:normal;
-    color: #3F51B5;
-    background: rgba(200, 200, 200, 0.5);
-    border-radius: 5px;
-}
+    #welcome  {
+        width: calc(100% / 2 - 15px);
+        display: inline-block;
+        vertical-align: top;
+    }
+    
+    #welcome h1 {
+        font-size: 32px;
+        padding: 90px 0 0 225px;
+        margin: 0px;
+        text-align: left;
+    } 
+    
+    #welcome h1 a {
+        color: #3F51B5;
+        background: rgba(200, 200, 200, 0.5);
+        border-radius: 5px;
+    }
+    
+    #welcome .description {
+        position: absolute;
+        font-size:11px;
+        top: 140px;
+        left: 230px;
+        z-index: 10;
+        font-weight:normal;
+        color: #3F51B5;
+        background: rgba(200, 200, 200, 0.5);
+        border-radius: 5px;
+    }
     .ic-hart:before {
         content: '♥';
     }

@@ -10,7 +10,7 @@ export class Like {
   countOfSubscript: number
 }
 
-export async function getLike(): Promise<Like> {
+export async function getLikeAsync(): Promise<Like> {
   //const response = await fetch('https://api.example.com/Like')
   //return (await response.json()) as Like
   return new Like(1, 5487, 5487)

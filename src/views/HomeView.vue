@@ -1,9 +1,17 @@
 <script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
+  import PostList from '../components/PostList/PostList.vue';
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
+  <main class="main">
+    <PostList />
   </main>
 </template>
+
+<style scoped>
+  .main {
+    position: relative;
+    display: block;
+    margin-bottom: 200px
+  }
+</style>
