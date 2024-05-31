@@ -1,9 +1,9 @@
 <script setup lang="ts">
   import { common } from "../../helper/common.ts";
-  import { Post, PostReactions }  from '../../repositories/Post.ts'
+  import { Recipe }  from '../../repositories/Recipe.ts';
   const props = defineProps({
-      post: {
-        type: [Object as PropType<Post>, null],
+      recipe: {
+        type: [Object as PropType<Recipe>, null],
         required: true
       },
   })
@@ -11,26 +11,26 @@
 
 <template>
   <div class="post-list-row">
-      <h1 class="post-list-row-title"> {{ props.post.id + '. ' + props.post.title }} </h1>
+      <h1 class="post-list-row-title"> {{ props.recipe.id + '. ' + props.recipe.name }} </h1>
       <div class="post-list-row-body"> 
-          <img class="post-list-row-img" :src="props.post.imgSrc" />
-          <p>{{ props.post.body }} </p>
+          <img class="post-list-row-img" :src="props.recipe.image" />
+          <p class="instructions" v-for="text in props.recipe.instructions"> {{ text }} </p> 
       </div>
       <div class="pull-right post-num-group">
            <div class="post-num date ">
-               <span class="date"> {{ common.dateFormatter(new Date(props.post.firstTimeOfCreate), 'zh-tw') }}</span>
+               <span class="date"> {{ common.dateFormatter(new Date(props.recipe.firstTimeOfCreate), 'zh-tw') }}</span>
            </div>
          <div class="post-num views ">
              <span class="text">瀏覽</span> 
-             <span class="amount"> ({{ common.numFormatter(props.post.views, 2) }})</span>
+             <span class="amount"> ({{ common.numFormatter(props.recipe.views, 2) }})</span>
          </div>
-          <div class="post-num replay">
+          <div class="post-num reply">
               <span class="text">回應</span> 
-                <span class="amount">({{ common.numFormatter(props.post.reactions.likes, 2) }})</span> 
+                <span class="amount">({{ common.numFormatter(props.recipe.reply, 2) }})</span> 
           </div>
           <div class="post-num trackback">
               <span class="text">引用</span> 
-              <span class="amount">({{ common.numFormatter(props.post.reactions.dislikes, 2) }})</span> 
+              <span class="amount">({{ common.numFormatter(props.recipe.trackback, 2) }})</span> 
           </div>
       </div>
   </div>
@@ -74,8 +74,10 @@
           min-height: 150px;
       }
           .post-list-row > .post-list-row-body > p {
-              padding: 6px;
               text-indent: 1em;
+              line-height: 22px;
+              margin: 0;
+              padding: 0;
           }
 
     .post-num-group {
@@ -83,7 +85,7 @@
         width: 100%;
         height: 30px;
         position: absolute;
-        bottom: 5px;
+        bottom: -8px;
     }
     .pull-right > div.post-num {
         display: inline-block;
@@ -92,7 +94,7 @@
         .pull-right > div.post-num.views {
             right: 210px;
         }
-        .pull-right > div.post-num.replay {
+        .pull-right > div.post-num.reply {
             right: 110px;
         }
         .pull-right > div.post-num.trackback {

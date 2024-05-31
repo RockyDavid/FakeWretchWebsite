@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { ref } from 'vue'
-  import { Post, getPostByIdAsync }  from '../../repositories/Post.ts';
+  import { Post, PostReactions, getPostByIdAsync }  from '../../repositories/Post.ts';
   import { Recipe, getRecipeByIdAsync }  from '../../repositories/Recipe.ts';
 
   const props = defineProps({
@@ -10,24 +10,25 @@
     }
   })
 
-  const post = ref<Post>(null);
-  const recipe = ref<Recipe>(null);
-
-      console.log('props.postId', props.postId);
-  getPostByIdAsync(props.postId).then(response => { 
-      console.log('getPostByIdAsync', response);
-    post.value = response;
-  });
+  var recipe = ref<Recipe>(null);
+  var posts = ref<Post[]>([]);
   getRecipeByIdAsync(props.postId).then(response => { 
     recipe.value = response;
-  });
+        getPostByIdAsync(props.postId).then(response => { 
+          posts.value.push(response);;
+        });
+  })
 </script>
 
 <template>
     <div class="post-content">
-      <div class="post-board">
-        <h2 class="post-head">AAA</h2>
+      <div class="post-board" v-for="post in posts" :key="post.id">
+        <h2 class="post-head"> {{ post.title }} </h2>
         <div class="post-body">
+            <p style="text-align: center;"> {{ recipe.name }} </p>
+            <img width="300px" :src="recipe.image" />
+            <ul style="text-align: left;width: 312px;margin: 0 auto;font-size: 12px;"><li v-for="text in recipe.instructions"> {{ text }} </li></ul> 
+            <p style="text-align: left;"> {{ post.body }} </p>
             <iframe src="https://www.youtube.com/embed/d6SLsUv7tlw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
@@ -55,14 +56,13 @@
   }
       .post-board {
           width: 100%;
-          margin: 20px auto;
+          margin: 0px auto;
           background-color: #f8f8f8;
           border: 2px solid #ccc;
           padding: 15px;
           border-radius: 10px;
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-          text-align: left;
       }
   .post-head {
     position: relative;

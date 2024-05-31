@@ -3,30 +3,30 @@
   import { useRouter } from 'vue-router';
   import PostListRow from './PostListRow.vue';
   import Pagination from './Pagination.vue';
-  import { Post, PostReactions, getPostsAsync }  from '../../repositories/Post.ts';
+  import { Recipe, getRecipesAsync }  from '../../repositories/Recipe.ts';
 
   const router = useRouter();
-  const posts = ref<Post[]>([]);
+  const recipes = ref<Recipe[]>([]);
   const pageCurrent = ref<number>(1); 
   const pageCount = ref<number>(10); 
   
   function updatePageCurrent(page: number)
   {
     pageCurrent.value = page;
-    getPostsAsync(pageCurrent.value, pageCount.value).then(response => { 
-      posts.value = response 
+    getRecipesAsync(pageCurrent.value, pageCount.value).then(response => { 
+      recipes.value = response 
     })
   }
 
-  function goToPost(postId: number)
+  function goToRecipe(recipeId: number)
   {
-    router.push('/post/' + postId);
+    router.push('/post/' + recipeId);
   }
 </script>
 
 <template>
   <div class="post-list">
-    <PostListRow :post="post" v-for="post in posts" :key="post.id" @click="goToPost(post.id)" />
+    <PostListRow :recipe="recipe" v-for="recipe in recipes" :key="recipe.id" @click="goToRecipe(recipe.id)" />
     <Pagination :pageCurrent="pageCurrent" :pageCount="pageCount" @update:pageCurrent="updatePageCurrent" />
   </div>
 </template>

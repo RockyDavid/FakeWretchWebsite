@@ -1,4 +1,7 @@
 var common = {
+  RandomNum(start: number, end: number) {
+    return parseInt((start + Math.random() * (end - start)).toFixed(0));
+  },
   RandomDate(start: number, end: number, startHour: number, endHour: number) {
     var date = new Date(+start + Math.random() * (end - start));
     var hour = (startHour + Math.random() * (endHour - startHour)) | 0;
