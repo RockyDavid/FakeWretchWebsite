@@ -37,27 +37,8 @@
     display: block;
     width: 100%;
     margin: 0 auto;
-    background: #b5b2ff;
-    border-radius: 15px;
-    padding: 5px 20px;
+    background-color: transparent;
+    padding: 0px;
     overflow: hidden;
-
-    > * {
-      position: relative;
-    }
-
-    &::before {
-      display: block;
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      content: " ";
-      background-image: linear-gradient(90deg, transparent 20px, #dee2e6 5px);
-      background-size: 25px 100%;
-      background-repeat: repeat;
-      transform: rotate(30deg) scale(5);
-    }
   }
 </style>

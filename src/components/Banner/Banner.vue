@@ -33,8 +33,8 @@
 
 <template>
   <div id="banner">
-    <Marquee :welcome="banner.title"/>
-    <Slide :imgs="imgs" />
+    <!-- Marquee :welcome="banner.title"/ -->
+    <!-- Slide :imgs="imgs" /-->
     <WhoCome :whocome="whocome" />
     <Welcome :key="banner.id" :banner="banner" :like="like" />
   </div>
@@ -43,33 +43,13 @@
 <style scoped>
 #banner {
   width: 100%;
-  height: 610px;
-  background: #b5b2ff;
+  background-color: #f8f8f8;
   position: relative;
   display: inline-block;
   padding: 1.5rem;
-  border: 3px solid #7E8EF1;
-  border-radius: 20px;
   overflow: hidden;
-
-  > * {
-    position: relative;
-  }
-
-  &::before {
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    content: " ";
-    background-image: linear-gradient(90deg, transparent 20px, #dee2e6 5px);
-    background-size: 25px 100%;
-    background-repeat: repeat;
-    transform: rotate(30deg) scale(5);
-  }
 }
+
 
 
 </style>

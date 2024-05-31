@@ -5,6 +5,7 @@
   import Alert from './components/Alert/Alert.vue';
   import MenuList from './components/MenuList/MenuList.vue';
   import MusicPlayer from './components/MusicPlayer/Player.vue';
+  import Curosr from './components/Curosr/Curosr.vue';
 
   onMounted(() => {
       window.dispatchEvent(new CustomEvent('alertinfo', { detail: { message: 'AAAAA' }}));
@@ -13,10 +14,10 @@
 
 <template>
   <Alert />
-  <MusicPlayer />
+  <Curosr />
+  <!-- MusicPlayer /-->
   <header>
     <img alt="Wretch" class="logo" src="@/assets/wretch.png" />
-
     <Banner />
     <MenuList />
   </header>

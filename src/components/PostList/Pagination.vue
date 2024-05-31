@@ -92,7 +92,8 @@
     position: relative;
     text-align: center;
     height: 46px;
-    background: rgb(245 254 255 / 50%);
+    background-color: transparent;
+      border-bottom:4px solid transparent;
   }
   #pagination > a {
     cursor: pointer;
@@ -102,10 +103,10 @@
     float: left;
     padding: 8px 16px;
     text-decoration: none;
+    color: #FFF;
   }
-  #pagination > a.active {
+  #pagination > .router-link-active {
     cursor: default;
-    background-color: #b5b2ff;
-    color: white;
+    border-bottom:4px solid #FFF;
   }
 </style>

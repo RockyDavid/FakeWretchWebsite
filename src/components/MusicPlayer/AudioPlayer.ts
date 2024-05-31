@@ -295,7 +295,7 @@ var AudioPlayer = {
     }
   },
   UpdateDetails(trackIndex: number) {
-    this.updateBackground(this.tracks[trackIndex].ImageUrl);
+    //this.updateBackground(this.tracks[trackIndex].ImageUrl);
     this.updateTrackInfo(
       `PLAYING ${trackIndex + 1} OF ${this.tracks.length} - ${this.tracks[trackIndex].Name}`,
     );

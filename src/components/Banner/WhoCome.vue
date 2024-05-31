@@ -18,8 +18,9 @@
     #whocome {
       position: relative;
       display: inline-block;
-      width: calc(100% / 2 - 15px);
+      width: 500px;
       padding: 0px 120px;
+      
     } 
     #whocome img {
       position: relative;

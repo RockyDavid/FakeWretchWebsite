@@ -23,13 +23,13 @@
 <template>
     <div class="post-content">
       <div class="post-board" v-for="post in posts" :key="post.id">
-        <h2 class="post-head"> {{ post.title }} </h2>
+        <h1 class="post-head"> {{ recipe.id + '. ' + recipe.name }} </h1>
         <div class="post-body">
-            <p style="text-align: center;"> {{ recipe.name }} </p>
-            <img width="300px" :src="recipe.image" />
-            <ul style="text-align: left;width: 312px;margin: 0 auto;font-size: 12px;"><li v-for="text in recipe.instructions"> {{ text }} </li></ul> 
-            <p style="text-align: left;"> {{ post.body }} </p>
-            <iframe src="https://www.youtube.com/embed/d6SLsUv7tlw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <h2 class="recipe-name"> {{ post.title }} </h2>
+            <img class="recipe-img" :src="recipe.image" />
+            <ul class="recipe-instructions"><li v-for="text in recipe.instructions"> {{ text }} </li></ul> 
+            <p class="post-body-detail"> {{ post.body }} </p>
+            <div class="clear-both"></div>
         </div>
       </div>
       <div class="message-board">
@@ -53,28 +53,45 @@
       display: block;
       width: 100%;
       margin: 0 auto;
+      color: #000;
   }
       .post-board {
           width: 100%;
           margin: 0px auto;
           background-color: #f8f8f8;
-          border: 2px solid #ccc;
           padding: 15px;
-          border-radius: 10px;
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       }
   .post-head {
     position: relative;
     display: block;
-    color: #333;
     text-align: left;
+    margin: 0;
   }
   .post-body {
     position: relative;
     display: block;
-    text-align: center;
   }
+    .recipe-name {
+        width: 100%;
+        text-align: left;
+        display: block;
+        position: relative;
+        margin: 0;
+    }
+    .recipe-img {
+        float: left;
+        width: 350px;
+        margin-right: 30px;
+        margin-bottom: 6px;
+    }
+    .post-body-detail {
+        float: left;
+        display: inline-block;
+        width: calc(100% - 380px);
+        margin-top: -12px;
+        margin-left: -20px;
+        text-indent: 2em;
+    }
     iframe {
       margin: 0 auto;
       width: 850px;
@@ -84,41 +101,28 @@
   /* 美化留言板 */
   .message-board {
       width: 100%;
-      margin: 20px auto;
+      margin: 6px auto;
       background-color: #f8f8f8;
-      border: 2px solid #ccc;
       padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       text-align: left;
+      color: #000;
   }
   .message-board h2 {
-      color: #333;
       text-align: center;
   }
   .message-board p {
-      color: #666;
       line-height: 1.5;
   }
-  .message-board input[type="text"],
-  .message-board textarea {
-      width: calc(100% - 22px);
-      padding: 10px;
-      margin: 5px 0;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-  }
-  .message-board input[type="submit"] {
-      background-color: #4CAF50;
-      color: white;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-top: 10px;
-  }
-  .message-board input[type="submit"]:hover {
-      background-color: #45a049;
-  }
+      .message-board input[type="text"],
+      .message-board textarea {
+          width: calc(100% - 22px);
+          padding: 10px;
+          margin: 5px 0;
+      }
+      .message-board input[type="submit"] {
+          padding: 10px 15px;
+          border-radius: 5px;
+          cursor: pointer;
+          margin-top: 10px;
+      }
 </style>

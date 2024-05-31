@@ -120,13 +120,20 @@
     position: fixed;
     top: 6px;
     right: 6px;
-    background: white;
     z-index: 999;
-    transition: background-color 3s;
     border-radius: 15px;
     max-width: 300px;
     width: 300px;
     background-size: cover !important;
+    background-color: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: rgba(142, 142, 142, 0.19) 0px 6px 15px 0px;
+    -webkit-box-shadow: rgba(142, 142, 142, 0.19) 0px 6px 15px 0px;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    color: rgba(255, 255, 255, 0.75)
   }
 
   /* Using flex with the column direction to
