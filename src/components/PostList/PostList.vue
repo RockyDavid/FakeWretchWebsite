@@ -14,7 +14,7 @@
   {
     pageCurrent.value = page;
     getRecipesAsync(pageCurrent.value, pageCount.value).then(response => { 
-      recipes.value = response 
+      recipes.value = response;
     })
   }
 
@@ -22,6 +22,7 @@
   {
     router.push('/post/' + recipeId);
   }
+  
 </script>
 
 <template>

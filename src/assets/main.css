@@ -1,11 +1,12 @@
 @import './base.css';
+html,body {
+  cursor: none;
+}
 body {
   background: #000000;
   font-family: "Montserrat", sans-serif;;
   /* background: url('src/assets/background.jpg'); 
   cursor: url('src/assets/cursor.webp'), auto; /* 自定義鼠標指針 */
-  cursor: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/9632/tina.gif"), auto;
-
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-size: cover;
 }

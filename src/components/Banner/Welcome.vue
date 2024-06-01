@@ -1,6 +1,8 @@
 <script setup lang="ts">
+    import { onMounted } from 'vue'
     import { Banner }  from '../../repositories/Banner.ts'
     import { Like }  from '../../repositories/Like.ts'
+    import { MouseImageEvent }  from '../MouseImage/MouseImageEvent.ts'
     const props = defineProps({
         banner: {
           type: [Object as PropType<Banner>, null],
@@ -26,6 +28,11 @@
             isAlertShow = false;
         }, 5000);
     }
+
+    onMounted(() => {
+        MouseImageEvent.bindElementById('optLike');
+        MouseImageEvent.bindElementById('optSubscript');
+    });
 </script>
 
 <template>
@@ -33,8 +40,8 @@
         <h1><a href="." class="fun_click" data-tagname="blog_1">{{ banner.title }}</a></h1>  
         <span class="description">{{ banner.description }}</span>
         <div class="likopt">
-            <i @click="like.countOfLikes++"><span class="ic-hart"></span><b>{{ like.countOfLikes }}</b>愛的鼓勵</i>
-            <i @click="subscript"><span class="ic-start"></span><b>{{ like.countOfSubscript }}</b>訂閱站台</i>
+            <i id="optLike" @click="like.countOfLikes++"><span class="ic-hart"></span><b>{{ like.countOfLikes }}</b>愛的鼓勵</i>
+            <i id="optSubscript" @click="subscript"><span class="ic-start"></span><b>{{ like.countOfSubscript }}</b>訂閱站台</i>
         </div>  
     </div>
 </template>
@@ -85,8 +92,8 @@
         font-style: normal; 
         font-size: 12px; 
         text-align: left; 
-        cursor: pointer; 
         color: #000;
+        cursor: none;
         /*
         color: #00eeff; 
         box-shadow: 1px 1px 7px rgba(0,0,0,0.3);  
