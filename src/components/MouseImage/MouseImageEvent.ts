@@ -24,8 +24,11 @@ var MouseImageEvent = {
   },
   bindCustomElement(el: object | null) {
     if (el) {
+      console.log("bindCustomElement", el);
       var refdata = el as HTMLElement;
+      console.log("refdata.id", refdata.id);
       const rs = document.getElementById(refdata.id);
+      console.log("rs", rs);
       if (rs) {
         MouseImageEvent.setImageIsPointer(rs as HTMLElement);
       }
@@ -33,7 +36,6 @@ var MouseImageEvent = {
   },
   bindElementById(id: string) {
     const el = document.getElementById(id) as HTMLElement;
-    console.log("bindElementById", el);
     MouseImageEvent.setImageIsPointer(el);
   },
 };
