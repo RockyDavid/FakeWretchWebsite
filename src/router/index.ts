@@ -10,14 +10,14 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: "/post/:id",
+      path: "/post/:id/:showId",
       name: "post",
       component: () => import("../views/PostView.vue"),
     },
     {
-      path: "/about",
-      name: "about",
-      component: () => import("../views/AboutView.vue"),
+      path: "/album",
+      name: "album",
+      component: () => import("../views/AlbumView.vue"),
     },
   ],
 });

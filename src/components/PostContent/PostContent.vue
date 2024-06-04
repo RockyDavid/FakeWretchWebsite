@@ -8,19 +8,24 @@
     postId: {
       type: Number,
       required: true
+    },
+    showId: {
+      type: Number,
+      required: true    
     }
   })
 
   var recipe = ref<Recipe>(null);
   var posts = ref<Post[]>([]);
   var msgs = ref<Message[]>([]);
-  getRecipeByIdAsync(props.postId).then(response => { 
+  var refPostId = ref<number>(props.postId);
+  getRecipeByIdAsync(refPostId.value).then(response => { 
     recipe.value = response;
-        getPostByIdAsync(props.postId).then(response => { 
-          posts.value.push(response);;
-        });
+    getPostByIdAsync(refPostId.value).then(response => { 
+      posts.value.push(response);;
+    });
   });
-  getMessagesAsync(props.postId).then(response => { 
+  getMessagesAsync(refPostId.value).then(response => { 
       msgs.value = response;
   });
 
@@ -37,7 +42,7 @@
 <template>
     <div id="postContent" class="post-content">
       <div class="post-board r:10 bd:blur(3) b:1;solid;white/.1 bg:black/.3 blend:hard-light" v-for="post in posts" :key="post.id">
-        <h1 class="post-head"> {{ recipe.id + '. ' + recipe.name }} </h1>
+        <h1 class="post-head"> {{ props.showId + '. ' + recipe.name }} </h1>
         <div class="post-body">
             <h2 class="recipe-name"> {{ post.title }} </h2>
             <img class="recipe-img" :src="recipe.image" />

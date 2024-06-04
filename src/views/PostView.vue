@@ -3,12 +3,12 @@
   import PostContent from '../components/PostContent/PostContent.vue'
   const route = useRoute();
   const postId = route.params.id;
-  
+  const showId = route.params.showId;
 </script>
 
 <template>
   <div class="post">
-    <PostContent :postId="postId" />
+    <PostContent :postId="postId" :showId="showId" />
   </div>
 </template>
 

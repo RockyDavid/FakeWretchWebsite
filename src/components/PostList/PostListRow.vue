@@ -1,12 +1,13 @@
 <script setup lang="ts">
+  import { ref } from 'vue'
   import { common } from "../../helper/common.ts";
   import { Recipe }  from '../../repositories/Recipe.ts';
   const props = defineProps({
       recipe: {
         type: [Object as PropType<Recipe>, null],
         required: true
-      },
-  })
+      }
+  });
 </script>
 
 <template>
