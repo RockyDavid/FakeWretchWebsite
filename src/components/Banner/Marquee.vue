@@ -18,8 +18,7 @@
       overflow: hidden;
       white-space: nowrap;
       box-sizing: border-box;
-      animation: marquee-2480862e 10s linear infinite;
-      background-color: rgba(0, 0, 0, 0.5);
+      animation: marquee-2480862e 3s linear infinite;
       padding: 10px 0;
       color: #FFF;
       text-align: center;
@@ -30,8 +29,9 @@
       font-size: 30px;
   }
   @keyframes marquee {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
+      0% { transform: translateX(23%); }
+      50% { transform: translateX(43%); }
+      100% { transform: translateX(23%); }
   }
 
 </style>

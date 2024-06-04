@@ -1,7 +1,6 @@
 <script setup lang="ts">
   import { common } from "../../helper/common.ts";
   import { Recipe }  from '../../repositories/Recipe.ts';
-  import { MouseImageEvent }  from '../MouseImage/MouseImageEvent.ts'
   const props = defineProps({
       recipe: {
         type: [Object as PropType<Recipe>, null],
@@ -11,7 +10,7 @@
 </script>
 
 <template>
-  <div class="post-list-row" :id="'PostListRow$' + props.recipe.id" :ref="MouseImageEvent.bindCustomElement">
+  <div class="post-list-row r:10 bd:blur(3) b:1;solid;white/.1 bg:black/.3 blend:hard-light" :id="'PostListRow$' + props.recipe.id">
       <h1 class="post-list-row-title"> {{ props.recipe.id + '. ' + props.recipe.name }} </h1>
       <div class="post-list-row-body">
           <img class="post-list-row-img" :src="props.recipe.image" />
@@ -41,11 +40,10 @@
 
 <style scoped>
   .post-list-row  {
-      color: #000;
-      cursor: none;
+      color: #fff;
+      cursor: pointer;
       position: relative;
       display: block;
-      background-color: #f8f8f8;
       margin-bottom: 6px;
       padding: 0 6px;
       border-bottom: 4px transparent solid;

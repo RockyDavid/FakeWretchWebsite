@@ -63,7 +63,7 @@
 </script>
 
 <template>
-  <div id="MusicPlayerBackground" class="music-player">
+  <div id="MusicPlayerBackground" class="music-player r:10 bd:blur(3) b:1;solid;white/.1 bg:white/.3 blend:hard-light">
   <div class="player">
 
     <!-- Define the section for displaying details -->
@@ -111,29 +111,19 @@
   }
   .slider_container,
   .slider_container_left {
-    background: rgba(0, 0, 0, 0.5);
     padding: 0 3px;
     margin-top: 3px;
     height: 15px;
   }
   .music-player {
     position: fixed;
-    top: 6px;
+    bottom: 6px;
     right: 6px;
     z-index: 999;
     border-radius: 15px;
     max-width: 300px;
     width: 300px;
-    background-size: cover !important;
-    background-color: rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    box-shadow: rgba(142, 142, 142, 0.19) 0px 6px 15px 0px;
-    -webkit-box-shadow: rgba(142, 142, 142, 0.19) 0px 6px 15px 0px;
-    border-radius: 12px;
-    -webkit-border-radius: 12px;
-    color: rgba(255, 255, 255, 0.75)
+    color:  #fff;
   }
 
   /* Using flex with the column direction to
@@ -155,7 +145,6 @@
     justify-content: center;
   }
   .buttons {
-    background: rgba(0, 0, 0, 0.5);
     width: 75%;
     text-align: center;
     margin-top: 5px;
@@ -165,21 +154,12 @@
     border:1px solid #fff;
   }
   .playpause-track {
-    margin-left: 60px;
+    margin-left: 52px;
     border:1px solid #fff;
   }
   .next-track {
-    margin-left: 60px;
+    margin-left: 52px;
     border:1px solid #fff;
-  }
-  .prev-track:hover {
-    background:rgba(120,75,75,0.5);
-  }
-  .playpause-track:hover {
-    background:rgba(120,75,75,0.5);
-  }
-  .next-track:hover {
-    background:rgba(120,75,75,0.5);
   }
 
   .track-art {
@@ -196,7 +176,6 @@
   .now-playing {
     font-size: 12px;
     animation: marquee-2480862e 10s linear infinite;
-    background: rgba(0, 0, 0, 0.5);
     color: #fff;
     padding: 0px 6px;
     border-radius: 10px;

@@ -1,9 +1,7 @@
 <script setup lang="ts">
-  import { ref, onMounted, watch, nextTick  } from 'vue';
+  import { ref, watch  } from 'vue';
   import { Post, PostReactions, hasNextPage }  from '../../repositories/Post.ts';
-  import { MouseImageEvent }  from '../MouseImage/MouseImageEvent.ts'
 
-  
   const props = defineProps({
     pageCurrent: {
       type: Number,
@@ -77,26 +75,13 @@
     getPages();
   }
 
-  onMounted(() => {
-      MouseImageEvent.bindElementById('btnPagePrev');
-      MouseImageEvent.bindElementById('btnPageNext');
-  });
-  
-  nextTick(() => {
-    pages.value.forEach((page) => {
-      const element = document.getElementById(`Page$${page}`);
-      if (element) {
-        MouseImageEvent.bindCustomElement(element);
-      }
-    });
-  });
 </script>
 
 <template>
     <div id="pagination">
-      <a v-show="pageCanPrev" @click="doPrev" id="btnPagePrev"> « </a>
-      <a v-for="p in pages" :class="p === props.pageCurrent ? 'active' : '' " @click="setPageIndex(p)" :id="'Page$' + p"> {{ p }} </a>
-      <a v-show="pageCanNext" @click="doNext" id="btnPageNext"> » </a>
+      <a v-show="pageCanPrev" @click="doPrev"> « </a>
+      <a v-for="p in pages" :class="p === props.pageCurrent ? 'active' : '' " @click="setPageIndex(p)"> {{ p }} </a>
+      <a v-show="pageCanNext" @click="doNext"> » </a>
     </div>
 </template>
 
@@ -110,7 +95,7 @@
       border-bottom:4px solid transparent;
   }
   #pagination > a {
-    cursor: none;
+    cursor: pointer;
     font-size: 20px;
     margin: 0 6px;
     color: black;

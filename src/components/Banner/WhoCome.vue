@@ -16,15 +16,33 @@
 
 <style scoped>
     #whocome {
-      position: relative;
+      position: fixed;
       display: inline-block;
-      width: 500px;
-      padding: 0px 120px;
-      
+      width: 60px;
+      z-index: 9999;
+      top: 112px;
+      left: 20px;
+      text-align: center;
     } 
     #whocome img {
       position: relative;
       display: inline-block;
-      width: 82px;
+      width: 50px;
+      border-radius: 50px;
+      margin-left: 5px;
+      border: 3px #000 solid;
+      animation: whocomeimgmove 3s linear infinite;
     } 
+  .logo:hover {
+    animation: none;
+    cursor: pointer;
+  }
+  @keyframes whocomeimgmove {
+    0%{
+      transform: rotate3d(0, 1, 0, 0deg);
+    }
+    100%{
+      transform: rotate3d(0, 1, 0, 360deg);
+    }
+  }
 </style>

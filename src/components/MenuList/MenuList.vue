@@ -1,7 +1,6 @@
 <script setup lang="ts">
   import { ref } from 'vue';
   import { Menu, getMenuAsync }  from '../../repositories/Menu.ts'
-  import { MouseImageEvent }  from '../MouseImage/MouseImageEvent.ts'
 
   const menus = ref<Menu>(new Menu(-1, '', ''));
   const menuElements = ref<HTMLAnchorElement[]>([]);
@@ -13,14 +12,13 @@
 </script>
 
 <template>
-    <div id="menu">
+    <div id="menu" class="r:10 bd:blur(3) b:1;solid;white/.1 bg:black/.3 blend:hard-light">
         <nav class="navMenu">
           <RouterLink 
             v-for="m in menus" 
             class="nav-menu" 
             :key="m.id" 
-            :to="m.link" 
-            :ref="MouseImageEvent.bindRouterLink">{{ m.title }}</RouterLink>
+            :to="m.link" >{{ m.title }}</RouterLink>
         </nav>
     </div>
 </template>
@@ -50,7 +48,7 @@
       display: inline-block;
       width: 80px;
       border-bottom:4px solid transparent;
-      cursor: none;
+      cursor: pointer;
     }
   
     .navMenu > a.active {

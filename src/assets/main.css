@@ -1,15 +1,4 @@
 @import './base.css';
-html,body {
-  cursor: none;
-}
-body {
-  background: #000000;
-  font-family: "Montserrat", sans-serif;;
-  /* background: url('src/assets/background.jpg'); 
-  cursor: url('src/assets/cursor.webp'), auto; /* 自定義鼠標指針 */
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-size: cover;
-}
 
 .clear-both {
   clear: both;
@@ -22,16 +11,47 @@ body {
   font-weight: normal;
 }
 
-a,
-.green {
+a,i {
   text-decoration: none;
   color: hsla(160, 100%, 37%, 1);
   transition: 0.4s;
   padding: 3px;
+  border-bottom: 3px transparent solid;
+}
+a.active,
+a.router-link-exact-active {
+  border-bottom-color:#fff !important;
+}
+@media (hover: hover) {
+  a:hover, 
+  i:hover,
+  input[type="submit"]:hover,
+  .post-list-row:hover {
+    background-color: hsla(75, 35%, 100%, 0.5) !important;
+  }
+  img.who:hover {
+    border-radius: 50% !important;
+  }
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(0.1875rem);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: hsla(75, 35%, 100%, 0.5);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #fff; 
+  cursor: pointer;
 }

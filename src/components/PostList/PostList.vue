@@ -28,8 +28,8 @@
 <template>
   <div class="post-list">
     <PostListRow :recipe="recipe" v-for="recipe in recipes" :key="recipe.id" @click="goToRecipe(recipe.id)" />
-    <Pagination :pageCurrent="pageCurrent" :pageCount="pageCount" @update:pageCurrent="updatePageCurrent" />
   </div>
+  <Pagination :pageCurrent="pageCurrent" :pageCount="pageCount" @update:pageCurrent="updatePageCurrent" />
 </template>
 
 <style scoped>
@@ -39,7 +39,8 @@
     width: 100%;
     margin: 0 auto;
     background-color: transparent;
-    padding: 0px;
-    overflow: hidden;
+    padding: 0px 8px 0px 0px;
+    overflow-y: scroll;
+    height: 415px;
   }
 </style>
