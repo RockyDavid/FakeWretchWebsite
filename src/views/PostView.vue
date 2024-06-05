@@ -1,6 +1,8 @@
 <script setup lang="ts">
   import { useRoute } from 'vue-router';
   import PostContent from '../components/PostContent/PostContent.vue'
+  import { Banner }  from '../components/Banner/Banner.ts';
+  Banner.Hide();
   const route = useRoute();
   const postId = route.params.id;
   const showId = route.params.showId;

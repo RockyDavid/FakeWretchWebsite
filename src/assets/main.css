@@ -26,7 +26,8 @@ a.router-link-exact-active {
   a:hover, 
   i:hover,
   input[type="submit"]:hover,
-  .post-list-row:hover {
+  .post-list-row:hover,
+  .photo-box:hover {
     background-color: hsla(75, 35%, 100%, 0.5) !important;
   }
   img.who:hover {

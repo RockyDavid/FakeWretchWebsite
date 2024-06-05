@@ -19,6 +19,11 @@ const router = createRouter({
       name: "album",
       component: () => import("../views/AlbumView.vue"),
     },
+    {
+      path: "/albumdetail/:id/:idx",
+      name: "albumdetail",
+      component: () => import("../views/AlbumDetailView.vue"),
+    },
   ],
 });
 

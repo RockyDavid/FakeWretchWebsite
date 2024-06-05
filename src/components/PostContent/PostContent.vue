@@ -79,7 +79,7 @@
       margin: 0 auto;
       padding: 0px 8px 0px 0px;
       overflow-y: scroll;
-      height: 460px;
+      height: 775px;
   }
       .post-board {
           width: 100%;

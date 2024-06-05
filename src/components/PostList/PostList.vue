@@ -9,6 +9,7 @@
   const recipes = ref<Recipe[]>([]);
   const pageCurrent = ref<number>(1); 
   const pageCount = ref<number>(10); 
+  const pageEnd = ref<number>(27); 
   const showId = ref<number>(0); 
   const PostListRows = ref<Array>([]);
   
@@ -56,7 +57,7 @@
   <div class="post-list">
     <PostListRow :recipe="recipe" v-for="recipe in recipes" :key="recipe.id" @click="goToRecipe(recipe.id - showId, showId + 1)" />
   </div>
-  <Pagination :pageCurrent="pageCurrent" :pageCount="pageCount" @update:pageCurrent="updatePageCurrent" />
+  <Pagination :pageCurrent="pageCurrent" :pageCount="pageCount" @update:pageCurrent="updatePageCurrent" :pageEnd="pageEnd" />
 </template>
 
 <style scoped>

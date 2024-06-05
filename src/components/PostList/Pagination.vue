@@ -10,14 +10,20 @@
     pageCount: {
       type: Number,
       required: true
+    },
+    pageEnd: {
+      type: Number,
+      required: true
     }
   })
   const emit = defineEmits<{
     (e: 'update:pageCurrent', page: number): void
   }>()
+
+  var divPagination = ref<HTMLElement>(null);
   var pages = ref<number[]>([]);
   var pageStart = ref<number>(1);
-  var pageEnd = ref<number>(27);
+  var pageEnd = ref<number>(props.pageEnd);
   var pageCanPrev = ref<boolean>(false);
   var pageCanNext = ref<boolean>(false);
   
@@ -75,10 +81,17 @@
     getPages();
   }
 
+  const Show = (idx: number) => {
+    divPagination.value.style.display = 'block';
+  };
+  const Hide = (idx: number) => {
+    divPagination.value.style.display = 'none';
+  };
+  defineExpose({ Show, Hide });
 </script>
 
 <template>
-    <div id="pagination">
+    <div ref="divPagination" id="pagination">
       <a v-show="pageCanPrev" @click="doPrev"> « </a>
       <a v-for="p in pages" :class="p === props.pageCurrent ? 'active' : '' " @click="setPageIndex(p)"> {{ p }} </a>
       <a v-show="pageCanNext" @click="doNext"> » </a>

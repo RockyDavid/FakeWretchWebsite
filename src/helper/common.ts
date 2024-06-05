@@ -33,13 +33,41 @@ var common = {
     return (num / si[i].value).toFixed(digits).replace(rx, "$1") + si[i].symbol;
   },
   getDataAsync<T>(url: string): Promise<T> {
-    console.log("getDataAsync", url);
     return new Promise<T>((resolve, reject) => {
       const xhr = new XMLHttpRequest();
       xhr.open("GET", url, true);
       xhr.responseType = "json";
 
       //xhr.setRequestHeader("user-agent", "Mozilla/4.0 MDN Example");
+      xhr.setRequestHeader("content-type", "application/json");
+
+      xhr.onreadystatechange = () => {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+          if (xhr.status >= 200 && xhr.status < 300) {
+            resolve(xhr.response as T);
+          } else {
+            console.log("xhr.statusText", xhr.statusText);
+            reject(new Error(xhr.statusText));
+          }
+        }
+      };
+
+      xhr.onerror = (err) => {
+        console.log("xhr.onerror", err);
+        reject(new Error("Network error"));
+      };
+
+      xhr.send();
+    });
+  },
+  getDataWithAuthorizationAsync<T>(token: string, url: string): Promise<T> {
+    return new Promise<T>((resolve, reject) => {
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", url, true);
+      xhr.responseType = "json";
+
+      //xhr.setRequestHeader("user-agent", "Mozilla/4.0 MDN Example");
+      xhr.setRequestHeader("Authorization", token);
       xhr.setRequestHeader("content-type", "application/json");
 
       xhr.onreadystatechange = () => {
