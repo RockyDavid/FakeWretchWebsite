@@ -34,7 +34,7 @@
   {
     Loading.HideAsync();
   }
-  function openAlbumPlayer(idx: number)
+  function openAlbumPlayer(name: string, idx: number)
   {
     ablumPlayerContent.value.style.display = 'block';
     ablumContent.value.style.display = 'none';
@@ -59,7 +59,7 @@
     </div>
     <div v-if="!noPermit" ref="ablumContent" class="ablum-content bg:white/.3 text-align:center">
       <div class="masonry">
-        <div class="photo-box w:100% r:10 b:1;solid;white/.1 bg:black overflow:hidden  font-size:12px z-index:19" v-for="(photo, idx) in photos" :key="photo.id" @click="openAlbumPlayer(idx)">
+        <div class="photo-box w:100% r:10 b:1;solid;white/.1 bg:black overflow:hidden  font-size:12px z-index:19" v-for="(photo, idx) in photos" :key="photo.id" @click="openAlbumPlayer(photo.name, idx)">
           <h2 class="photo-name position:absolute w:100% h:30px overflow:hidden left:0 top:0 bg:black/.3 z-index:10"> {{ photo.name }} </h2>
           <img class="photo-img" :src="photo.image" />
           <div class="clear-both"></div>
