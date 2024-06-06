@@ -1,8 +1,17 @@
 <script setup lang="ts">
-  import { ref } from 'vue'
+  import { ref, onMounted } from 'vue'
   import { Post, PostReactions, getPostByIdAsync }  from '../../repositories/Post.ts';
   import { Recipe, getRecipeByIdAsync }  from '../../repositories/Recipe.ts';
   import { Message, getMessagesAsync }  from '../../repositories/Message.ts';
+  import { Loading }  from '../Global/Loading.ts';
+
+  onMounted(() => {
+    Loading.ShowAsync(() => {
+      var divPostContent = document.getElementById('postContent');
+      divPostContent.style.display = "block";
+      Loading.HideAsync();
+    });
+  });
 
   const props = defineProps({
     postId: {
@@ -15,6 +24,7 @@
     }
   })
 
+  var divPostContent = ref<HTMLDivElement>(null);
   var recipe = ref<Recipe>(null);
   var posts = ref<Post[]>([]);
   var msgs = ref<Message[]>([]);
@@ -31,11 +41,11 @@
 
   function append()
   {
-      var postContent = document.getElementById('postContent');
+      var divPostContent = document.getElementById('postContent');
       var txtName = document.getElementById('txtName');
       var txtMsg = document.getElementById('txtMsg');
       msgs.value.push(new Message(msgs.value.length+1, txtName.value, txtName.value));
-      postContent.scrollTo(0, postContent.scrollHeight+20);
+      divPostContent.scrollTo(0, divPostContent.scrollHeight+20);
   }
 </script>
 
@@ -74,7 +84,7 @@
 <style scoped>
   .post-content {
       position: relative;
-      display: block;
+      display: none;
       width: 100%;
       margin: 0 auto;
       padding: 0px 8px 0px 0px;

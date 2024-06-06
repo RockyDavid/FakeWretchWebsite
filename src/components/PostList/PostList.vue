@@ -51,10 +51,19 @@
     router.push('/post/' + recipeId + '/' + showId);
   }
 
+
+  const divPostList = ref<HTMLDivElement>(null);
+  const Show = () => {
+    divPostList.value.style.display = "block";
+  };
+  const Hide = () => {
+    divPostList.value.style.display = "none";
+  };
+  defineExpose({ Show, Hide });
 </script>
 
 <template>
-  <div class="post-list">
+  <div ref="divPostList" class="post-list none w:100% h:415px m:0|auto bc:transparent p:0|8px|0|0">
     <PostListRow :recipe="recipe" v-for="recipe in recipes" :key="recipe.id" @click="goToRecipe(recipe.id - showId, showId + 1)" />
   </div>
   <Pagination :pageCurrent="pageCurrent" :pageCount="pageCount" @update:pageCurrent="updatePageCurrent" :pageEnd="pageEnd" />
@@ -63,12 +72,6 @@
 <style scoped>
   .post-list {
     position: relative;
-    display: block;
-    width: 100%;
-    margin: 0 auto;
-    background-color: transparent;
-    padding: 0px 8px 0px 0px;
     overflow-y: scroll;
-    height: 415px;
   }
 </style>

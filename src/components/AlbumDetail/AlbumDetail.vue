@@ -6,7 +6,15 @@
   import { Banner }  from '../Banner/Banner.ts';
   import { Loading }  from '../Global/Loading.ts';
   const store = useAlbumPermitStore();
-    
+
+  Loading.ShowAsync(() => {
+    if(ablumContent.value)
+    {
+      ablumContent.value.style.display = "block";
+    }
+    Loading.HideAsync();
+  });
+  
   const props = defineProps({
     albumId: {
       type: Number,
@@ -46,10 +54,7 @@
   {
     ablumPlayerContent.value.style.display = 'none';
     ablumContent.value.style.display = 'block';
-    Loading.ShowAsync(() => {
-      alblumPlayer.value.Close();
-      Loading.HideDelayAsync();
-    });
+    alblumPlayer.value.Close();
   }
 </script>
 
@@ -80,6 +85,7 @@
     width: 100%;
     overflow-y: scroll;
     height: 775px;
+    display: none;
   }
   .masonry {
     width: 100%;

@@ -24,10 +24,17 @@
     });
   }
 
+  const Show = () => {
+    divAlbumList.value.style.display = "grid";
+  };
+  const Hide = () => {
+    divAlbumList.value.style.display = "none";
+  };
+  defineExpose({ Show, Hide });
 </script>
 
 <template>
-  <div ref="divAlbumList" class="album-list p:12px r:10 bd:blur(3) b:1;solid;white/.1 bg:black/.3">
+  <div ref="divAlbumList" class="album-list none w:100% h:415px p:12px r:10 bd:blur(3) b:1;solid;white/.1 bg:black/.3">
     <AlbumListCell v-for="(album, idx) in albums" :album="album" :idx="idx"  />
   </div>
   <Pagination ref="pagination" :pageCurrent="pageCurrent" :pageCount="pageCount" @update:pageCurrent="updatePageCurrent" :pageEnd="pageEnd" />
@@ -35,12 +42,8 @@
 
 <style scoped>
   .album-list {
-    position: relative;
-    width: 100%;
-    background-color: transparent;
+    position: relative;;
     overflow-y: scroll;
-    height: 415px;
-    display: grid;
     grid-template-columns: calc(20% - 2.4px) calc(20% - 2.4px) calc(20% - 2.4px) calc(20% - 2.4px) calc(20% - 2.4px);
     gap: 3px;
     grid-auto-rows: minmax(100px, auto);

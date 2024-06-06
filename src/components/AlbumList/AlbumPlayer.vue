@@ -95,59 +95,29 @@
 </script>
 
 <template>
-  <div ref="divPlayerBox" class="album-player bg:black/1 border-radius:15px overflow:hidden">
-    <div class="header pl:12px bb:1px|solid|white/.3 bg:white/.3">
+  <div ref="divPlayerBox" class="album-player abs z-999 none w:100% h:100% top:0 left:0 bg:black/1 overflow:hidden">
+    <div class="header z-10 pl:12px bb:1px|solid|white/.3 bg:white/.3">
       <h3 class="name"> {{ `${ablumName} - ${photoIndex+1} / ${photos.length}`  }} </h3>
-      <div class="close" @click="close"></div>
+      <div class="close abs top:0 right:0 p:3px w:25px h:28px bg:red-60 bg:fade-60:hover" @click="close"></div>
     </div>
-    <a class="prev" @click="doPrev"></a>
-    <div ref="divPhoto" class="photo"><img ref="imgPhoto" /></div>
-    <a class="next" @click="doNext"></a>
+    <a class="prev abs z-9 top:29px font:80px font-color:transparent font-color:white:hover pt:25% pl:65px" @click="doPrev"></a>
+    <div ref="divPhoto" class="photo rel block w:100% h:100%"><img ref="imgPhoto" /></div>
+    <a class="next abs z-9 top:29px right:0 font:80px font-color:transparent font-color:white:hover pt:25% pl:65px" @click="doNext"></a>
   </div>
 </template>
 
 <style scoped>
-  .album-player {
-    position: absolute;
-    display: none;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 999;
-  }
-  .header {
-    z-index: 999;
-  }
-  .photo {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
-  .photo > img {
-  }
+  .z-999 { z-index: 999; }
+  .z-10 { z-index: 10; }
+  .z-9 { z-index: 9; }
+  .z-8 { z-index: 8; }
   .prev,
   .next {
-    top: 29px;
-    position: absolute;
     width: calc(100% / 6);
     height: calc(100% - 29px);
-    z-index: 998;
     cursor: pointer;
-    color: transparent;
-    font-size: 80px;
-    padding-top: 25%;
-    padding-left: 65px;
-  }
-  .next {
-    right: 0;
   }
 
-  .prev:hover,
-  .next:hover {
-    color: #fff;
-  }
   .prev:before {
     content: '◀';
   }
@@ -156,23 +126,13 @@
   }
   
   .close   {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 25px;
-    height: 28px;
-    opacity: 0.3;
-    background: lightcoral;
     cursor: pointer;
-  }
-  .close:hover {
-    opacity: 1;
   }
   .close:before, .close:after {
       position: absolute;
       left: 11px;
       content: ' ';
-      height: 26px;
+      height: 22px;
       width: 3px;
       background-color: #FFF;
   }
