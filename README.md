@@ -1,9 +1,11 @@
   
 # 有趣的網頁魔法-無名小站
+tags: 科技雜談, 前端技術
 ## Introduction
   ### ✈️旅遊 🥞美食 🏃減肥 📦️開箱 🙌手作 🧑‍💻科技
   ### 📬 devicten97@gmail.com
-  ### 照片輪撥、相簿 圖片 來自: [https://www.pexels.com/](https://www.pexels.com/)
+  ### 文章內容 ChatGPT, Microsoft Copilot 生成
+  ### 文章內照片、照片輪撥牆內照片、相簿內照片 來自: [https://www.pexels.com/](https://www.pexels.com/)
 ## Agenda 
   ### 1. 美化 背景、標題跑馬燈(CSS3動畫)、說明(顏文字,emoji)
   ### 2. 美化 橫幅、按鈕、誰來我家(CSS3動畫)、留言板
