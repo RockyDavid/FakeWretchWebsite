@@ -100,3 +100,18 @@ export async function getPhotosAsync(
     }),
   );
 }
+export async function getPhotosWithQueryAsync(
+  query: string,
+  countOfPage: number,
+): Promise<string[]> {
+  var response = await common.getDataWithAuthorizationAsync<PexelsApiResponse>(
+    token,
+    `https://api.pexels.com/v1/search?query=${query}&per_page=${countOfPage}`,
+  );
+  var idx: number = 0;
+  return Promise.all(
+    response.photos.map((photo) => {
+      return photo.src.large;
+    }),
+  );
+}

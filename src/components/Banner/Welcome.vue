@@ -33,9 +33,8 @@
     <div id="welcome">
         <!-- h1><a href="." class="fun_click" data-tagname="blog_1">╯✧∇✧╯ 歡迎來到阿哲領地 ╯✧∇✧╯</a></h1 -->  
         <div class="margin-top:50"></div>
-        <span class="description">旅遊✈️ 美食🥘 運動🏃‍♀️ 開箱📦️ 手作🙌 攝影📷 </span>
-        <span class="description">自煮料理🍱 校園生活📒 優惠訊息📰</span>
-        <span class="description">聯絡我：📬️devicten97@gmail.com</span>
+        <span class="description">✈️旅遊 🥞美食 🏃減肥 📦️開箱 🙌手作 🧑‍💻科技</span>
+        <span class="description">📬 devicten97@gmail.com</span>
         <div class="likopt">
             <i id="optLike" @click="like.countOfLikes++"><span class="ic-hart"></span><b>{{ like.countOfLikes }}</b>愛的鼓勵</i>
             <i id="optSubscript" @click="subscript"><span class="ic-start"></span><b>{{ like.countOfSubscript }}</b>訂閱站台</i>

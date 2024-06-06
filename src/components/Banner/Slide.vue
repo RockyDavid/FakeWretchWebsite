@@ -24,8 +24,11 @@
     onMounted(() => {
       nextTick(() => {
         slides.value = Array.from(document.getElementsByClassName('slides')) as Element[];
-        slides.value[0].style.opacity = 1;
-        setTimeout(showSlides, 2500);
+        if(slides.value.length > 0)
+        {
+          slides.value[0].style.opacity = 1;
+          setTimeout(showSlides, 2500);
+        }
       });
     });
 </script>
