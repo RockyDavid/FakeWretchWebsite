@@ -1,7 +1,6 @@
 <script setup lang="ts">
   import { ref, onMounted } from 'vue'
-  import { Post, PostReactions, getPostByIdAsync }  from '../../repositories/Post.ts';
-  import { Recipe, getRecipeByIdAsync }  from '../../repositories/Recipe.ts';
+  import { Post, getPostByIdAsync }  from '../../repositories/Post.ts';
   import { Message, getMessagesAsync }  from '../../repositories/Message.ts';
   import { Loading }  from '../Global/Loading.ts';
 
@@ -25,18 +24,14 @@
   })
 
   var divPostContent = ref<HTMLDivElement>(null);
-  var recipe = ref<Recipe>(null);
-  var posts = ref<Post[]>([]);
+  var post = ref<Post>(new Post(0, 0, '', '', '', 0, 0, 0, 0, '', ''));
   var msgs = ref<Message[]>([]);
-  var refPostId = ref<number>(props.postId);
-  getRecipeByIdAsync(refPostId.value).then(response => { 
-    recipe.value = response;
-    getPostByIdAsync(refPostId.value).then(response => { 
-      posts.value.push(response);;
-    });
+  
+  getPostByIdAsync(props.postId, props.showId).then(response => { 
+    post.value = response;
   });
-  getMessagesAsync(refPostId.value).then(response => { 
-      msgs.value = response;
+  getMessagesAsync(props.postId).then(response => { 
+    msgs.value = response;
   });
 
   function append()
@@ -51,14 +46,10 @@
 
 <template>
     <div id="postContent" class="post-content">
-      <div class="post-board r:10 bd:blur(3) b:1;solid;white/.1 bg:black/.3 blend:hard-light" v-for="post in posts" :key="post.id">
-        <h1 class="post-head"> {{ props.showId + '. ' + recipe.name }} </h1>
+      <div class="post-board r:10 bd:blur(3) b:1;solid;white/.1 bg:black/.3 blend:hard-light">
+        <h1 class="post-head"> {{ props.showId + '. ' + post.title }} </h1>
         <div class="post-body">
-            <h2 class="recipe-name"> {{ post.title }} </h2>
-            <img class="recipe-img" :src="recipe.image" />
-            <ul class="recipe-instructions"><li v-for="text in recipe.instructions"> {{ text }} </li></ul> 
-            <p class="post-body-detail"> {{ post.body }} </p>
-
+            <div class="post-body-text" v-html="post.body"></div>
             <div class="wrapper">
                 <div class="h-fix-iframe">
                     <iframe src="https://www.youtube.com/embed/d6SLsUv7tlw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

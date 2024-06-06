@@ -1,4 +1,18 @@
 var common = {
+  stripHtml(html: string) {
+    let tmp = document.createElement("DIV");
+    tmp.innerHTML = html;
+    return tmp.textContent || tmp.innerText || "";
+  },
+  hidImageFromHtml(html: string) {
+    let tmp = document.createElement("DIV");
+    tmp.innerHTML = html;
+    let imgBox = tmp.querySelector("div.img-box") as HTMLDivElement;
+    if (imgBox) {
+      imgBox.style.display = "none";
+    }
+    return tmp.innerHTML;
+  },
   RandomNum(start: number, end: number) {
     return parseInt((start + Math.random() * (end - start)).toFixed(0));
   },
