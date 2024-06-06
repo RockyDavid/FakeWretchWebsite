@@ -1,14 +1,9 @@
 <script setup lang="ts">
 
   import { ref, onMounted, nextTick } from 'vue';
-  const props = defineProps({
-    imgs: {
-      type: Array as PropType<string[]>,
-      required: true
-    }
-  })
 
     let slideIndex = ref(0);
+    const imgs = ref<string[]>([]);
     const slides = ref<Element[]>([]);
 
     function showSlides() {
@@ -20,8 +15,9 @@
       setTimeout(showSlides, 5000);
     }
 
-
-    onMounted(() => {
+    function showSlide(images: string[])
+    {
+      imgs.value = images;
       nextTick(() => {
         slides.value = Array.from(document.getElementsByClassName('slides')) as Element[];
         if(slides.value.length > 0)
@@ -29,8 +25,14 @@
           slides.value[0].style.opacity = 1;
           setTimeout(showSlides, 2500);
         }
+        else
+        {
+          setTimeout(showSlides, 500);
+        }
       });
-    });
+    }
+
+    defineExpose({ showSlide });
 </script>
 
 <template>

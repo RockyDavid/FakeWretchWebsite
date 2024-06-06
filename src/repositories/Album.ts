@@ -108,7 +108,6 @@ export async function getPhotosWithQueryAsync(
     token,
     `https://api.pexels.com/v1/search?query=${query}&per_page=${countOfPage}`,
   );
-  var idx: number = 0;
   return Promise.all(
     response.photos.map((photo) => {
       return photo.src.large;

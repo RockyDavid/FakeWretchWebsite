@@ -9,14 +9,12 @@
   import { Album, getPhotosWithQueryAsync }  from '../../repositories/Album.ts';
 
 
+  const slideUI = ref<Slide>(null);
   var bannerUI = ref<HTMLElement>(null);
   var banner = ref<Banner>(new Banner(-1, '', ''));
   var like = ref<Like>(new Like(-1, '', ''));
-  var imgs = ref<String[]>([]);
+  //var imgs = ref<String[]>([]);
   
-  getPhotosWithQueryAsync('Barbecue', 5).then( response => { 
-    imgs.value = response 
-  })
   getBannerAsync().then( response => { 
     banner.value = response 
   })
@@ -35,6 +33,10 @@
     bannerUI.value = document.getElementById('banner') as HTMLElement;
     window.addEventListener('bannershow', handleBannerShow as EventListener);
     window.addEventListener('bannerhide', handleBannerHide as EventListener);
+
+    getPhotosWithQueryAsync('Barbecue', 5).then(response => { 
+      slideUI.value.showSlide(response);
+    });
   });
 
   onBeforeUnmount(() => {
@@ -45,9 +47,9 @@
 </script>
 
 <template>
-  <div id="banner" class="d:flex px:12 r:10 bd:blur(3) b:1;solid;white/.1 bg:black/.3" ref="">
+  <div id="banner" class="d:flex px:12 r:10 bd:blur(3) b:1;solid;white/.1 bg:black/.3">
     <Marquee :welcome="banner.title"/>
-    <Slide :imgs="imgs" />
+    <Slide ref="slideUI" />
     <Welcome :key="banner.id" :banner="banner" :like="like" />
   </div>
 </template>
